@@ -59,7 +59,11 @@ function TechnologiesPic() {
                 `}
             </style>
             <section className="flex flex-col items-center w-full hover:cursor-pointer">
-                <p className="text-l font-bold p-6 hover:text-green-500 tracking-[.25em] text-white">TechStack</p>
+                {/* <p className="text-l font-bold p-6 hover:text-green-500 tracking-[.25em] text-white">TechStack</p> */}
+                <h1
+                    className="relative py-4 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-3xl font-extrabold text-transparent text-center select-auto">
+                    Tech Stacks
+                </h1>
                 <div className="icon-container">
                     {[
                         { icon: <SiCplusplus className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "C++" },
@@ -86,7 +90,10 @@ function TechnologiesPic() {
                         </div>
                     ))}
                 </div>
-                <p className="text-l italic font-bold text-white p-8 hover:text-green-500 tracking-[.25em]">...and many more to come!</p>
+                <h1
+                    className="relative py-4 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-3xl font-extrabold text-transparent text-center select-auto">
+                    ..and many more to come !
+                </h1>
             </section>
         </div>
     );
