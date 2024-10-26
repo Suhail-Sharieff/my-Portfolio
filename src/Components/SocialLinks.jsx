@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function SocialLinks() {
     return (
-        <div style={{ backgroundColor: '#2d3748', padding: '20px' }}> {/* Dark gray background */}
+        <div style={{ backgroundColor: '#000000', padding: '20px' }}> {/* Dark gray background */}
             <style>
                 {`
                     @keyframes float {
@@ -66,7 +66,7 @@ function SocialLinks() {
                             url: 'https://www.linkedin.com/in/suhail-sharieff-2a4500290/?originalSubdomain=in'
                         },
                         {
-                            icon: <FaGithub className="text-white text-3xl hover:text-black floating-icon" />,
+                            icon: <FaGithub className="text-white text-3xl hover:text-gray-500 floating-icon" />,
                             label: "Github",
                             url: 'https://github.com/Suhail-Sharieff'
                         },
@@ -76,12 +76,12 @@ function SocialLinks() {
                             url: 'https://www.reddit.com/user/SuhailSharieff/'
                         },
                         {
-                            icon: <SiMedium className="text-white text-3xl hover:text-black floating-icon" />,
+                            icon: <SiMedium className="text-white text-3xl hover:text-gray-800 floating-icon" />,
                             label: "Medium",
                             url: 'https://medium.com/@suhailsharieffsharieff'
                         },
                         {
-                            icon: <SiX className="text-white text-3xl hover:text-black floating-icon" />,
+                            icon: <SiX className="text-white text-3xl hover:text-gray-600 floating-icon" />,
                             label: "Medium",
                             url: 'https://x.com/SuhailShar62488?t=TlpMdK9CAJCE7UUknl5xiw&s=09'
                         }

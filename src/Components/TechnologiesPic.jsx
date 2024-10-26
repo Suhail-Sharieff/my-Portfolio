@@ -4,10 +4,12 @@ import { RiJavascriptFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiVite, SiMongodb, SiCplusplus, SiSpringboot, SiFlutter } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GrMysql } from 'react-icons/gr';
+import Footer from './Footer';
 
 function TechnologiesPic() {
     return (
-        <div style={{ backgroundColor: '#2d3748', padding: '20px' }}> {/* Dark gray background */}
+        <>
+        <div style={{ backgroundColor: '#000000', padding: '20px' }}> {/* Dark gray background */}
             <style>
                 {`
                     @keyframes float {
@@ -59,11 +61,8 @@ function TechnologiesPic() {
                 `}
             </style>
             <section className="flex flex-col items-center w-full hover:cursor-pointer">
-                {/* <p className="text-l font-bold p-6 hover:text-green-500 tracking-[.25em] text-white">TechStack</p> */}
-                <h1
-                    className="relative py-4 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-3xl font-extrabold text-transparent text-center select-auto">
-                    Tech Stacks
-                </h1>
+                <p className="text-l font-bold p-6 hover:text-green-500 tracking-[.25em] text-white">Technologies</p>
+          
                 <div className="icon-container">
                     {[
                         { icon: <SiCplusplus className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "C++" },
@@ -90,12 +89,12 @@ function TechnologiesPic() {
                         </div>
                     ))}
                 </div>
-                <h1
-                    className="relative py-4 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-3xl font-extrabold text-transparent text-center select-auto">
-                    ..and many more to come !
-                </h1>
+                <p className="text-l font-bold p-6 hover:text-green-500 tracking-[.25em] text-white">.....and many more to come !</p>
+
+                
             </section>
         </div>
+        </>
     );
 }
 
