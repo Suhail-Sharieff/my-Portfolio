@@ -59,15 +59,15 @@ function Introduction() {
             <section className="flex flex-col items-center w-full hover:cursor-pointer tracking-[.20em] ">
                 <section className="flex flex-col w-full  ">
                     <h1 className="intro text-green-500" style={{ fontSize: '60px'}}>Suhail Sharieff</h1>
-                    <div className="text-gray-500 text-sm">
+                    <div className="text-gray-500 text-2xl">
                         <span className='text-violet-200'>19M, Student | Bangalore, Karnataka, India | </span>
                     </div>
                 </section>
                 <section className="flex flex-col w-full gap-y-5  ">
                 <p className="text-yellow-500 text-sm tracking-[.25em]">
-    Hey There!<span className="text-xl tracking-[.25em] ">👋</span>. I&apos;m a 19-year-old student, currently pursuing my B.Tech in Computer Science @ <b>University Visveswarayya College of Engineering</b>.
+    Hey There!<span className="text-3xl tracking-[.25em] ">👋</span>. I&apos;m a 19-year-old student, currently pursuing my B.Tech in Computer Science @ <b>University Visveswarayya College of Engineering</b>.
 </p>
-<p className="text-sm tracking-[.25em] text-yellow-100" >
+<p className="text-md tracking-[.25em] text-yellow-100" >
     Currently delving into Development and DSA. On the side, I also dabble in Full Stack Development including technologies like the MERN Stack. Apart from coding, I take deep interest in the happenings of the world and the latest in tech...
 </p>
 

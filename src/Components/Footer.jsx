@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='tracking-[.25em] ' style={{ backgroundColor: '#000000', padding: '20px' }}> {/* Set background to black */}
+    <div className='tracking-[.25em] cursor-pointer' style={{ backgroundColor: '#000000', padding: '20px' }}> {/* Set background to black */}
 
       <h3 className="footer text-4xl py-5 text-green-500" >Contact Me</h3>
       <p className="text-sm text-yellow-100">
@@ -25,7 +25,7 @@ function Footer() {
         </div>
         <div className="flex icon-item hover:scale-110">
           <PiDownloadSimple className="text-white text-xl hover:scale-110" />
-          <a href="https://drive.google.com/file/d/1FM0ecCidBpfoilCVcgmj4ul9eq6D8rod/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-sm text-green-500 hover:scale-110"> - Resume</a>
+          <a href="https://docs.google.com/document/d/1J9I3DPyFpPxSvXKV2yAmoqvsLZazbHR0/edit?usp=sharing&ouid=110084091518391481966&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" className="text-sm text-green-500 hover:scale-110"> - Resume</a>
         </div>
       </div>
     </div>
