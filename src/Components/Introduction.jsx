@@ -68,7 +68,7 @@ function Introduction() {
     Hey There!<span className="text-3xl tracking-[.25em] ">👋</span>. I&apos;m a 19-year-old student, currently pursuing my B.Tech in Computer Science @ <b>University Visveswarayya College of Engineering</b>.
 </p>
 <p className="text-md tracking-[.25em] text-yellow-100" >
-    Currently delving into Development and DSA. On the side, I also dabble in Full Stack Development including technologies like the MERN Stack. Apart from coding, I take deep interest in the happenings of the world and the latest in tech...
+    Currently delving into Development and DSA. On the side, I also dabble in Full Stack Web Development including Andriod Development. Apart from coding, I take deep interest in the happenings of the world and the latest in tech...
 </p>
 
                 </section>
