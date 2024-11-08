@@ -238,3 +238,4 @@ Error generating stack: `+i.message+`
             }
           }
         `}),v.jsxs("section",{className:"tracking-[.25em] flex flex-col w-full space-y-5",children:[v.jsx("h3",{className:"footer text-4xl py-5 text-green-500",children:"Activity"}),v.jsxs("div",{className:"flex flex-row gap-4",children:[v.jsx("button",{className:`tab-button ${e==="Projects"?"active":""}`,onClick:()=>t("Projects"),children:"Projects"}),v.jsx("button",{className:`tab-button ${e==="DSA"?"active":""}`,onClick:()=>t("DSA"),children:"DSA"})]}),v.jsxs("div",{className:"icon-container",children:[e==="Projects"&&v.jsx(_d,{}),e==="DSA"&&v.jsx(zd,{})]})]})]})}function Ld(){return L.useState("Projects"),v.jsx(v.Fragment,{children:v.jsxs(yd,{children:[v.jsx(Nd,{}),v.jsx(Ed,{}),v.jsx(Cd,{}),v.jsx(Pd,{}),v.jsx(kd,{})]})})}_1(document.getElementById("root")).render(v.jsx(L.StrictMode,{children:v.jsx(Ld,{})}));
+
