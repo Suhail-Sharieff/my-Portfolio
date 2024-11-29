@@ -21,7 +21,7 @@ function Footer() {
 
         <div className="flex icon-item hover:scale-110">
           <CiPhone className="text-white text-xl hover:scale-110" />
-          <p className="text-sm text-green-500"> - +91 80733 04481</p>
+          <p className="text-sm text-green-500"> - +91 86180 69885</p>
         </div>
         <div className="flex icon-item hover:scale-110">
           <PiDownloadSimple className="text-white text-xl hover:scale-110" />
