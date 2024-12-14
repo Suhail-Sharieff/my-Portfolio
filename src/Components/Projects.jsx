@@ -32,6 +32,12 @@ const ProjectsCard = () => {
       skills: "HTML, CSS, JS",
       link: "https://github.com/Suhail-Sharieff/PROJECT-WEB_MUSIC_PLAYER"
     },
+    {
+      title: "Sikshak Saathi",
+      description: "A lightweight attendance app for educational institutes",
+      skills: "Flutter, SQFLite, BLoc",
+      link: "https://github.com/Suhail-Sharieff/PROJECT-attendance_app"
+    },
 
   ];
 
