@@ -1,10 +1,13 @@
 import React from 'react';
 import { FaReact, FaGitAlt, FaBootstrap, FaHtml5, FaCss3, FaPython, FaJava, FaNode } from "react-icons/fa";
 import { RiJavascriptFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiVite, SiMongodb, SiCplusplus, SiSpringboot, SiFlutter } from "react-icons/si";
+import { SiVite, SiMongodb, SiCplusplus, SiSpringboot, SiFlutter, SiPostman, SiSqlite, SiHive, SiApachehive, SiDart } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GrMysql } from 'react-icons/gr';
 import Footer from './Footer';
+import { TbCube } from "react-icons/tb";
+import { BiSolidCube } from 'react-icons/bi';
+import { FiFigma } from 'react-icons/fi';
 
 function TechnologiesPic() {
     return (
@@ -38,9 +41,10 @@ function TechnologiesPic() {
                     .tooltip {
                         position: absolute;
                         left: 50%;
+                        bottom:130%;
                         transform: translateX(-50%);
                         margin-top: 2px;
-                        background-color: #4a5568; /* Gray background */
+                        background-color:green; /* Gray background */
                         color: white;
                         font-size: 0.75rem; /* Smaller text */
                         border-radius: 0.25rem; /* Rounded corners */
@@ -82,6 +86,12 @@ function TechnologiesPic() {
                         { icon: <FaBootstrap className="text-white text-3xl hover:text-purple-500 floating-icon" />, label: "BootStrap" },
                         { icon: <IoLogoFirebase className="text-white text-3xl hover:text-orange-400 floating-icon" />, label: "Firebase" },
                         { icon: <SiFlutter className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Flutter" },
+                        { icon: <BiSolidCube className="text-white text-3xl hover:text-purple-400 floating-icon" />, label: "BLoC" },
+                        { icon: <SiPostman className="text-white text-3xl hover:text-orange-500 floating-icon" />, label: "Postman" },
+                        { icon: <SiSqlite className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Postman" },
+                        { icon: <SiApachehive className="text-white text-3xl hover:text-yellow-400 floating-icon" />, label: "Hive" },
+                        { icon: <FiFigma className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Figma" },
+                        { icon: <SiDart className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Dart" },
                     ].map(({ icon, label }, index) => (
                         <div key={index} className="icon-item">
                             {React.cloneElement(icon)}
