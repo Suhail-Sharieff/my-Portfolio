@@ -25,7 +25,7 @@ function Footer() {
         </div>
         <div className="flex icon-item hover:scale-110">
           <PiDownloadSimple className="text-white text-xl hover:scale-110" />
-          <a href="Suhail_Resume.pdf" download="Resume.pdf" className="text-sm text-green-500 hover:scale-110"> - Resume</a>
+          <a href="https://drive.google.com/file/d/1dBF7vVbThwZhfV2PMI3kMUNSAnv3_ZAi/view?usp=sharing" download="Resume.pdf" className="text-sm text-green-500 hover:scale-110"> - Resume</a>
         </div>
 
       </div>
