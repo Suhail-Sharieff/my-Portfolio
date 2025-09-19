@@ -1,7 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaReddit } from 'react-icons/fa';
-import { SiVite, SiMongodb, SiCplusplus, SiSpringboot, SiFlutter, SiMedium, SiX } from "react-icons/si";
-import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin, FaReddit, FaMedium, FaTwitter } from 'react-icons/fa';
+
+// 1. Import your profile picture
+import pfp from '../assets/pfp.jpg';
+import { SiCodeforces } from 'react-icons/si';
+
+// Reusable component for social links to keep the main component clean
+const SocialLink = ({ href, icon: Icon, tooltip }) => (
+    <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-green-500 transition-colors duration-300 group relative"
+    >
+        <Icon size={28} />
+        <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            {tooltip}
+        </span>
+    </a>
+);
+
 
 function Introduction() {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -11,82 +29,59 @@ function Introduction() {
             setCurrentTime(new Date());
         }, 1000);
 
+        // Cleanup the interval on component unmount
         return () => clearInterval(timer);
     }, []);
 
     return (
-        <div style={{ backgroundColor: '#000000', padding: '20px', position: 'relative' }}>
-            <style>
-                {`
-                    .icon-container {
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        gap: 30px;
-                        margin-top: 20px;
-                    }
-                    .icon-item {
-                        position: relative;
-                        margin: 0 20px;
-                        cursor: pointer;
-                    }
-                    .icon-item:hover .tooltip {
-                        opacity: 1;
-                    }
-                    .tooltip {
-                        position: absolute;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        margin-top: 2px;
-                        background-color: #4a5568;
-                        color: white;
-                        font-size: 0.75rem;
-                        border-radius: 0.25rem;
-                        padding: 0.25rem 0.5rem;
-                        opacity: 0;
-                        transition: opacity 0.3s ease;
-                    }
-                    .tooltip::after {
-                        content: '';
-                        position: absolute;
-                        top: 100%;
-                        left: 50%;
-                        margin-left: -5px;
-                        border-width: 5px;
-                        border-style: solid;
-                        border-color: #4a5568 transparent transparent transparent;
-                    }
-                    @media (max-width: 768px) {
-                        h1 {
-                            font-size: 40px;
-                        }
-                        .text-gray-500 {
-                            font-size: 0.875rem;
-                        }
-                    }
-                `}
-            </style>
+        // Main container with a dark background and centered content
+        <div className="bg-black text-white min-h-screen p-8 font-sans flex items-center justify-center">
 
-            <section className="flex flex-col items-center w-full hover:cursor-pointer tracking-[.20em] ">
-                <section className="flex flex-col w-full">
-                    <h1 className="intro text-green-500" style={{ fontSize: '60px' }}>Suhail Sharieff</h1>
-                    <div className="text-gray-500 text-2xl">
-                        <span className='text-violet-200'>
-                            19M, Student | Bangalore, Karnataka, India | <span className="text-orange-600">{currentTime.toLocaleTimeString()}</span>
-                        </span>
+            {/* Content wrapper with responsive layout */}
+            <div className="max-w-4xl w-full flex flex-col md:flex-row items-center text-center md:text-left gap-10">
+
+                {/* 2. Circular Avatar Section */}
+                <div className="flex-shrink-0">
+                    
+                    <img
+                        src={pfp}
+                        alt="Suhail Sharieff"
+                        className="w-40 h-40 rounded-full border-4 border-green-500 object-cover shadow-lg transition-transform duration-300 hover:scale-105"
+                    />
+                </div>
+
+                {/* Text Content Section */}
+                <div className="flex flex-col gap-4">
+                    <h1 className="text-4xl md:text-6xl font-bold text-green-500 tracking-wide">
+                        Suhail Sharieff
+                    </h1>
+                    
+                    <div className="text-lg text-gray-400">
+                        19M, Student | Bangalore, IN | <span className="font-mono text-orange-400">{currentTime.toLocaleTimeString()}</span>
                     </div>
 
-                </section>
+                   <p className="text-gray-300 tracking-wide leading-relaxed">
+  Hello! 👋 I'm a 19-year-old B.Tech Computer Science student at 
+  <strong> University Visvesvaraya College of Engineering (UVCE)</strong>, passionate about building impactful software solutions.
+</p>
 
-                <section className="flex flex-col w-full gap-y-5">
-                    <p className="text-yellow-500 text-sm tracking-[.25em]">
-                        Hey There!<span className="text-3xl tracking-[.25em] ">👋</span>. I&apos;m a 19-year-old student, currently pursuing my B.Tech in Computer Science @ <b>University Visveswarayya College of Engineering</b>.
-                    </p>
-                    <p className="text-md tracking-[.25em] text-yellow-100">
-                        Currently delving into Development and DSA. On the side, I also hone skills in Full Stack Web Development including Andriod Development. Apart from coding, I take deep interest in the happenings of the world and the latest in tech...
-                    </p>
-                </section>
-            </section>
+<p className="text-gray-300 tracking-wide leading-relaxed">
+  I’m currently exploring <strong>Full-Stack Web</strong> and <strong>Android Development</strong>, while sharpening my problem-solving skills through competitive programming and real-world projects. 
+  Beyond coding, I enjoy staying updated on global events and emerging technologies that shape our future.
+</p>
+
+
+                    {/* 3. Social Links Section */}
+                    <div className="flex justify-center md:justify-start gap-6 mt-4">
+                        <SocialLink href="https://github.com/Suhail-Sharieff" icon={FaGithub} tooltip="GitHub" />
+                        <SocialLink href="https://www.linkedin.com/in/suhail-sharieff-2a4500290/?originalSubdomain=in" icon={FaLinkedin} tooltip="LinkedIn" />
+                        <SocialLink href="https://x.com/SuhailShar62488?t=TlpMdK9CAJCE7UUknl5xiw&s=09" icon={FaTwitter} tooltip="Twitter/X" />
+                        <SocialLink href="https://medium.com/@suhailsharieffsharieff" icon={FaMedium} tooltip="Medium" />
+                        <SocialLink href="https://www.reddit.com/user/SuhailSharieff/" icon={FaReddit} tooltip="Reddit" />
+                        <SocialLink href="https://codolio.com/profile/x4Ctjy8d" icon={SiCodeforces} tooltip="Competitive Programming" />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

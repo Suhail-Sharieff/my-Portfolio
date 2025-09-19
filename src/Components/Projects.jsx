@@ -17,6 +17,20 @@ const ProjectsCard = () => {
       hackathon: "🎉 Google Solution Challenge 2025"
     },
     {
+      title: "RxGuardian",
+      description: "Pharmacy ERP (Enterprise Resource Planning) System",
+      skills: "NodeJS, Socket.io, Redis, MySQL, Flutter, GetX",
+      link: "https://github.com/Suhail-Sharieff/PROJECT-RxGuardian",
+    },
+    {
+      title: "CodeMint",
+      description:
+        "An interactive coding platform enabling live coding sessions for educational institutions and technical interviews.",
+      skills: ["React.js, Socket.io, Node.js, Flutter, Firebase"],
+      link: "https://github.com/Suhail-Sharieff/PROJECT-CodeMint",
+    },
+
+    {
       title: "Recurse",
       description: "Efficiently Solves Sudoku after validation",
       skills: "Algorithms, JavaScript",
@@ -60,7 +74,7 @@ const ProjectsCard = () => {
               {project.title} <span>&#8599;</span>
             </a>
           </h4>
-          
+
           <p className="text-white text-sm">{project.description}</p>
           <p className="text-white text-xs">Skills: {project.skills}</p>
           {project.hackathon && (

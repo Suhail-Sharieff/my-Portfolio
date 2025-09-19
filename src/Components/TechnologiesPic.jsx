@@ -1,111 +1,96 @@
-import React from 'react';
-import { FaReact, FaGitAlt, FaBootstrap, FaHtml5, FaCss3, FaPython, FaJava, FaNode } from "react-icons/fa";
+import React from "react";
+import {
+  FaReact,
+  FaGitAlt,
+  FaBootstrap,
+  FaHtml5,
+  FaCss3,
+  FaPython,
+  FaJava,
+  FaNode,
+} from "react-icons/fa";
 import { RiJavascriptFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiVite, SiMongodb, SiCplusplus, SiSpringboot, SiFlutter, SiPostman, SiSqlite, SiHive, SiApachehive, SiDart } from "react-icons/si";
+import {
+  SiVite,
+  SiMongodb,
+  SiCplusplus,
+  SiSpringboot,
+  SiFlutter,
+  SiPostman,
+  SiSqlite,
+  SiApachehive,
+  SiDart,
+  SiDocker,
+  SiRedis,
+  SiGetx,
+} from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
-import { GrMysql } from 'react-icons/gr';
-import Footer from './Footer';
-import { TbCube } from "react-icons/tb";
-import { BiSolidCube } from 'react-icons/bi';
-import { FiFigma } from 'react-icons/fi';
+import { GrMysql } from "react-icons/gr";
+import { BiSolidCube } from "react-icons/bi";
+import { FiFigma } from "react-icons/fi";
 
 function TechnologiesPic() {
-    return (
-        <>
-        <div style={{ backgroundColor: '#000000', padding: '20px' }}> {/* Dark gray background */}
-            <style>
-                {`
-                    @keyframes float {
-                        0% { transform: translateY(0); }
-                        50% { transform: translateY(-10px); }
-                        100% { transform: translateY(0); }
-                    }
-                    .floating-icon {
-                        animation: float 3s ease-in-out infinite;
-                    }
-                    .icon-container {
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        gap: 30px;
-                        margin-top: 20px;
-                    }
-                    .icon-item {
-                        position: relative;
-                        margin: 0 20px;
-                        cursor: pointer; /* Make it clear it's clickable */
-                    }
-                    .icon-item:hover .tooltip {
-                        opacity: 1;
-                    }
-                    .tooltip {
-                        position: absolute;
-                        left: 50%;
-                        bottom:130%;
-                        transform: translateX(-50%);
-                        margin-top: 2px;
-                        background-color:green; /* Gray background */
-                        color: white;
-                        font-size: 0.75rem; /* Smaller text */
-                        border-radius: 0.25rem; /* Rounded corners */
-                        padding: 0.25rem 0.5rem; /* Padding */
-                        opacity: 0;
-                        transition: opacity 0.3s ease;
-                    }
-                    .tooltip::after {
-                        content: '';
-                        position: absolute;
-                        top: 100%; /* Position the arrow below the tooltip */
-                        left: 50%;
-                        margin-left: -5px; /* Center the arrow */
-                        border-width: 5px;
-                        border-style: solid;
-                        border-color: #4a5568 transparent transparent transparent; /* Arrow color */
-                    }
-                `}
-            </style>
-            <section className="flex flex-col items-center w-full hover:cursor-pointer">
-                <p className="text-l font-bold p-6 hover:text-green-500 tracking-[.25em] text-white">Technologies</p>
-          
-                <div className="icon-container">
-                    {[
-                        { icon: <SiCplusplus className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "C++" },
-                        { icon: <FaJava className="text-white text-3xl hover:text-red-400 floating-icon" />, label: "Java" },
-                        { icon: <FaPython className="text-white text-3xl hover:text-yellow-400 floating-icon" />, label: "Python" },
-                        { icon: <FaHtml5 className="text-white text-3xl hover:text-orange-400 floating-icon" />, label: "HTML" },
-                        { icon: <FaCss3 className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "CSS" },
-                        { icon: <RiJavascriptFill className="text-white text-3xl hover:text-yellow-400 floating-icon" />, label: "JavaScript" },
-                        { icon: <FaNode className="text-white text-3xl hover:text-green-400 floating-icon" />, label: "NodeJS" },
-                        { icon: <RiTailwindCssFill className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Tailwind CSS" },
-                        { icon: <FaReact className="text-white text-3xl hover:text-violet-500 floating-icon" />, label: "React" },
-                        { icon: <SiSpringboot className="text-white text-3xl hover:text-green-600 floating-icon" />, label: "Spring Boot" },
-                        { icon: <FaGitAlt className="text-white text-3xl hover:text-orange-500 floating-icon" />, label: "Git" },
-                        { icon: <SiVite className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Vite" },
-                        { icon: <GrMysql className="text-white text-3xl hover:text-violet-500 floating-icon" />, label: "MySQL" },
-                        { icon: <SiMongodb className="text-white text-3xl hover:text-green-700 floating-icon" />, label: "MongoDB" },
-                        { icon: <FaBootstrap className="text-white text-3xl hover:text-purple-500 floating-icon" />, label: "BootStrap" },
-                        { icon: <IoLogoFirebase className="text-white text-3xl hover:text-orange-400 floating-icon" />, label: "Firebase" },
-                        { icon: <SiFlutter className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Flutter" },
-                        { icon: <BiSolidCube className="text-white text-3xl hover:text-purple-400 floating-icon" />, label: "BLoC" },
-                        { icon: <SiPostman className="text-white text-3xl hover:text-orange-500 floating-icon" />, label: "Postman" },
-                        { icon: <SiSqlite className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Postman" },
-                        { icon: <SiApachehive className="text-white text-3xl hover:text-yellow-400 floating-icon" />, label: "Hive" },
-                        { icon: <FiFigma className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Figma" },
-                        { icon: <SiDart className="text-white text-3xl hover:text-blue-400 floating-icon" />, label: "Dart" },
-                    ].map(({ icon, label }, index) => (
-                        <div key={index} className="icon-item">
-                            {React.cloneElement(icon)}
-                            <span className="tooltip">{label}</span>
-                        </div>
-                    ))}
-                </div>
-                <p className="text-l font-bold p-6 hover:text-green-500 tracking-[.25em] text-white">.....and many more to come !</p>
+  const techStack = [
+    { icon: <SiCplusplus />, label: "C++", color: "hover:text-blue-400" },
+    { icon: <FaJava />, label: "Java", color: "hover:text-red-400" },
+    { icon: <FaPython />, label: "Python", color: "hover:text-yellow-400" },
+    { icon: <FaHtml5 />, label: "HTML", color: "hover:text-orange-400" },
+    { icon: <FaCss3 />, label: "CSS", color: "hover:text-blue-400" },
+    { icon: <RiJavascriptFill />, label: "JavaScript", color: "hover:text-yellow-400" },
+    { icon: <FaNode />, label: "NodeJS", color: "hover:text-green-400" },
+    { icon: <RiTailwindCssFill />, label: "Tailwind CSS", color: "hover:text-sky-400" },
+    { icon: <FaReact />, label: "React", color: "hover:text-cyan-400" },
+    { icon: <SiSpringboot />, label: "Spring Boot", color: "hover:text-green-600" },
+    { icon: <FaGitAlt />, label: "Git", color: "hover:text-orange-500" },
+    { icon: <SiVite />, label: "Vite", color: "hover:text-purple-400" },
+    { icon: <GrMysql />, label: "MySQL", color: "hover:text-blue-500" },
+    { icon: <SiMongodb />, label: "MongoDB", color: "hover:text-green-500" },
+    { icon: <FaBootstrap />, label: "Bootstrap", color: "hover:text-purple-500" },
+    { icon: <IoLogoFirebase />, label: "Firebase", color: "hover:text-orange-400" },
+    { icon: <SiFlutter />, label: "Flutter", color: "hover:text-sky-400" },
+    { icon: <BiSolidCube />, label: "BLoC", color: "hover:text-purple-400" },
+    { icon: <SiPostman />, label: "Postman", color: "hover:text-orange-500" },
+    { icon: <SiSqlite />, label: "SQLite", color: "hover:text-blue-400" },
+    { icon: <SiApachehive />, label: "Hive", color: "hover:text-yellow-400" },
+    { icon: <FiFigma />, label: "Figma", color: "hover:text-pink-400" },
+    { icon: <SiDart />, label: "Dart", color: "hover:text-sky-400" },
+    { icon: <SiDocker />, label: "Docker", color: "hover:text-blue-400" },
+    { icon: <SiRedis />, label: "Redis", color: "hover:text-red-400" },
+    { icon: <SiGetx />, label: "GetX", color: "hover:text-violet-400" },
+  ];
 
-                
-            </section>
+  return (
+    <div className="bg-gradient-to-b from-black via-gray-900 to-black py-16 px-6">
+      <section className="flex flex-col items-center">
+        <h2 className="text-3xl md:text-3xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 tracking-[.25em]">
+          TECHNOLOGIES
+        </h2>
+
+        {/* Grid layout */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-10">
+          {techStack.map(({ icon, label, color }, index) => (
+            <div
+              key={index}
+              className="relative group flex flex-col items-center"
+            >
+              <div
+                className={`text-5xl text-white transition-all duration-300 transform group-hover:scale-125 ${color}`}
+              >
+                {icon}
+              </div>
+              <span className="absolute bottom-[-2rem] text-xs bg-green-600 text-white rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition duration-300">
+                {label}
+              </span>
+            </div>
+          ))}
         </div>
-        </>
-    );
+
+        <p className="mt-12 text-sm md:text-base font-semibold text-gray-300 tracking-widest hover:text-green-400 transition">
+          .....and many more to come!
+        </p>
+      </section>
+    </div>
+  );
 }
 
 export default TechnologiesPic;
