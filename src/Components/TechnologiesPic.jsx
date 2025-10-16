@@ -11,21 +11,18 @@ import { GrMysql } from "react-icons/gr";
 import { BiSolidCube } from "react-icons/bi";
 import { FiFigma } from "react-icons/fi";
 
-// --- CSS Keyframes for Floating and Horizontal Drift Animation (The "Flow" Effect) ---
+// --- CSS Keyframes for Floating and Horizontal Drift Animation (REMOVED) ---
+// Note: Keeping the CSS declaration blocks structure simple for this file.
 const FLOAT_ANIMATION_CSS = `
-    /* Combined vertical float and horizontal drift */
-    @keyframes flow {
-        0% { transform: translate(0px, 0px) scale(1); }
-        50% { transform: translate(-5px, -8px) scale(1.05); } /* Drifts left and up */
-        100% { transform: translate(0px, 0px) scale(1); }
-    }
+    /* All keyframes and animation classes removed to prevent scrolling lag */
     .animate-float-flow {
-        animation: flow 7s ease-in-out infinite;
+        /* This class now serves only as a static element wrapper */
+        will-change: auto; 
     }
 `;
 // ------------------------------------------
 
-// --- Accent Color Constants (green/Teal) ---
+// --- Accent Color Constants ---
 const ACCENT_COLOR_CLASS = 'text-green-400';
 const ACCENT_BORDER_CLASS = 'border-green-700/50';
 const ACCENT_SHADOW_CLASS = 'shadow-green-900/60';
@@ -37,7 +34,7 @@ const ACCENT_HOVER_CLASS = 'hover:text-green-300';
 const techStack = [
     { 
         category: "Languages & Core", 
-        color: "border-l-4 border-green-500", // Visual identifier for the category bar
+        color: "border-l-4 border-green-500", 
         items: [
             { icon: <SiCplusplus />, label: "C++", color: "text-blue-500" },
             { icon: <FaJava />, label: "Java", color: "text-red-500" },
@@ -90,66 +87,58 @@ const techStack = [
 
 const TechCategory = ({ category, items, color }) => (
     <div className="w-full mb-12">
-        {/* Category Title Bar: 
-          - Increased font size (xl -> 2xl) 
-          - Added a distinct border-left and shadow for a "cut-out" effect 
-          - Using the dynamic 'color' prop for the vibrant border/background
-        */}
+        {/* Category Title Bar */}
         <h3 className={`text-2xl font-extrabold mb-8 text-white tracking-wide ${color} border-l-4 pl-4 pb-2 transition-colors duration-300 shadow-lg`}>
             {category}
         </h3>
         
-        {/* Code Flow Layout: 
-          - Items are centered with justify-center
-          - Increased gap (gap-x-10 gap-y-12) for visual breathing room
-        */}
+        {/* Code Flow Layout - Items are centered with justify-center */}
         <div className="flex flex-wrap gap-x-10 gap-y-12 justify-center"> 
-            {items.map(({ icon: icon, label, color }, index) => (
+            {items.map(({ icon: Icon, label, color }, index) => (
                 <div
                     key={index}
-                    // Card wrapper (Enhanced styles)
+                    // Card wrapper (Static hover effect remains)
                     className={`group relative flex flex-col items-center p-5 rounded-xl transition-all duration-300 transform 
-                                hover:scale-105 hover:shadow-2xl hover:shadow-cyan-900/60 
+                                hover:scale-105 hover:shadow-2xl hover:shadow-green-900/60 
                                 bg-gray-900/70 border border-gray-700/50 
                                 w-full max-w-[110px]`} 
                     style={{ minWidth: '90px' }}
                 >
                     <div
-                        // APPLIED FLOW ANIMATION
-                        className={`text-5xl ${color} transition-all duration-300 animate-float-flow`}
-                        style={{ 
-                            animationDelay: `${index * 0.25}s`,
-                            animationDuration: `${7 + Math.random() * 4}s` 
-                        }} 
+                        // **STATIC ICON:** Removed the animation class and inline styles
+                        className={`text-5xl ${color} transition-all duration-300`}
                     >
-                        {icon}
+                        {Icon}
                     </div>
                     
-                    {/* Label (Enhanced font weight) */}
+                    {/* Label */}
                     <span className="mt-3 text-xs font-semibold font-mono text-gray-400 group-hover:text-white transition-colors text-center">
                         {label}
                     </span>
                     
                     {/* Visual Hover Effect (Bottom Accent Bar) */}
-                    <div className="absolute bottom-0 left-0 w-full h-1 rounded-b-xl bg-transparent group-hover:bg-cyan-500 transition-colors duration-300"></div>
+                    <div className="absolute bottom-0 left-0 w-full h-1 rounded-b-xl bg-transparent group-hover:bg-green-500 transition-colors duration-300"></div>
                 </div>
             ))}
         </div>
     </div>
 );
+
 function TechnologiesPic() {
     // Inject the keyframes CSS once the component is mounted
     React.useEffect(() => {
-        const style = document.createElement('style');
-        style.type = 'text/css';
-        style.innerHTML = FLOAT_ANIMATION_CSS;
-        document.head.appendChild(style);
+        // Find and remove old style tag if it exists (good cleanup practice)
+        let style = document.getElementById('flow-animation-style');
+        if (style) {
+            document.head.removeChild(style);
+        }
+        
+        // Add a new static style tag to ensure any lingering definitions are cleared
+        const newStyle = document.createElement('style');
+        newStyle.id = 'flow-animation-style';
+        newStyle.innerHTML = FLOAT_ANIMATION_CSS;
+        document.head.appendChild(newStyle);
 
-        return () => {
-            if (document.head.contains(style)) {
-                 document.head.removeChild(style);
-            }
-        };
     }, []);
     
     return (
@@ -157,7 +146,7 @@ function TechnologiesPic() {
         <div className="bg-black text-white py-16 px-4 md:px-8 font-sans">
             <section className="max-w-7xl mx-auto flex flex-col items-center">
                 
-                {/* Title (green accent) */}
+                {/* Title */}
                 <h2 className={`text-4xl md:text-5xl font-extrabold mb-12 ${ACCENT_COLOR_CLASS} tracking-normal uppercase border-b border-green-700/50 pb-2`}>
                     Tech Stacks
                 </h2>
