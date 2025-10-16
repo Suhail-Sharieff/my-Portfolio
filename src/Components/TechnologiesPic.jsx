@@ -1,96 +1,181 @@
 import React from "react";
 import {
-  FaReact,
-  FaGitAlt,
-  FaBootstrap,
-  FaHtml5,
-  FaCss3,
-  FaPython,
-  FaJava,
-  FaNode,
+    FaReact, FaGitAlt, FaBootstrap, FaHtml5, FaCss3, FaPython, FaJava, FaNode,
 } from "react-icons/fa";
 import { RiJavascriptFill, RiTailwindCssFill } from "react-icons/ri";
 import {
-  SiVite,
-  SiMongodb,
-  SiCplusplus,
-  SiSpringboot,
-  SiFlutter,
-  SiPostman,
-  SiSqlite,
-  SiApachehive,
-  SiDart,
-  SiDocker,
-  SiRedis,
-  SiGetx,
+    SiVite, SiMongodb, SiCplusplus, SiSpringboot, SiFlutter, SiPostman, SiSqlite, SiApachehive, SiDart, SiDocker, SiRedis, SiGetx,
 } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { GrMysql } from "react-icons/gr";
 import { BiSolidCube } from "react-icons/bi";
 import { FiFigma } from "react-icons/fi";
 
-function TechnologiesPic() {
-  const techStack = [
-    { icon: <SiCplusplus />, label: "C++", color: "hover:text-blue-400" },
-    { icon: <FaJava />, label: "Java", color: "hover:text-red-400" },
-    { icon: <FaPython />, label: "Python", color: "hover:text-yellow-400" },
-    { icon: <FaHtml5 />, label: "HTML", color: "hover:text-orange-400" },
-    { icon: <FaCss3 />, label: "CSS", color: "hover:text-blue-400" },
-    { icon: <RiJavascriptFill />, label: "JavaScript", color: "hover:text-yellow-400" },
-    { icon: <FaNode />, label: "NodeJS", color: "hover:text-green-400" },
-    { icon: <RiTailwindCssFill />, label: "Tailwind CSS", color: "hover:text-sky-400" },
-    { icon: <FaReact />, label: "React", color: "hover:text-cyan-400" },
-    { icon: <SiSpringboot />, label: "Spring Boot", color: "hover:text-green-600" },
-    { icon: <FaGitAlt />, label: "Git", color: "hover:text-orange-500" },
-    { icon: <SiVite />, label: "Vite", color: "hover:text-purple-400" },
-    { icon: <GrMysql />, label: "MySQL", color: "hover:text-blue-500" },
-    { icon: <SiMongodb />, label: "MongoDB", color: "hover:text-green-500" },
-    { icon: <FaBootstrap />, label: "Bootstrap", color: "hover:text-purple-500" },
-    { icon: <IoLogoFirebase />, label: "Firebase", color: "hover:text-orange-400" },
-    { icon: <SiFlutter />, label: "Flutter", color: "hover:text-sky-400" },
-    { icon: <BiSolidCube />, label: "BLoC", color: "hover:text-purple-400" },
-    { icon: <SiPostman />, label: "Postman", color: "hover:text-orange-500" },
-    { icon: <SiSqlite />, label: "SQLite", color: "hover:text-blue-400" },
-    { icon: <SiApachehive />, label: "Hive", color: "hover:text-yellow-400" },
-    { icon: <FiFigma />, label: "Figma", color: "hover:text-pink-400" },
-    { icon: <SiDart />, label: "Dart", color: "hover:text-sky-400" },
-    { icon: <SiDocker />, label: "Docker", color: "hover:text-blue-400" },
-    { icon: <SiRedis />, label: "Redis", color: "hover:text-red-400" },
-    { icon: <SiGetx />, label: "GetX", color: "hover:text-violet-400" },
-  ];
+// --- CSS Keyframes for Floating and Horizontal Drift Animation (The "Flow" Effect) ---
+const FLOAT_ANIMATION_CSS = `
+    /* Combined vertical float and horizontal drift */
+    @keyframes flow {
+        0% { transform: translate(0px, 0px) scale(1); }
+        50% { transform: translate(-5px, -8px) scale(1.05); } /* Drifts left and up */
+        100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-float-flow {
+        animation: flow 7s ease-in-out infinite;
+    }
+`;
+// ------------------------------------------
 
-  return (
-    <div className="bg-gradient-to-b from-black via-gray-900 to-black py-16 px-6">
-      <section className="flex flex-col items-center">
-        <h2 className="text-3xl md:text-3xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 tracking-[.25em]">
-          TECHNOLOGIES
-        </h2>
+// --- Accent Color Constants (green/Teal) ---
+const ACCENT_COLOR_CLASS = 'text-green-400';
+const ACCENT_BORDER_CLASS = 'border-green-700/50';
+const ACCENT_SHADOW_CLASS = 'shadow-green-900/60';
+const ACCENT_HOVER_CLASS = 'hover:text-green-300';
+// -----------------------------------------------------------------
 
-        {/* Grid layout */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-10">
-          {techStack.map(({ icon, label, color }, index) => (
-            <div
-              key={index}
-              className="relative group flex flex-col items-center"
-            >
-              <div
-                className={`text-5xl text-white transition-all duration-300 transform group-hover:scale-125 ${color}`}
-              >
-                {icon}
-              </div>
-              <span className="absolute bottom-[-2rem] text-xs bg-green-600 text-white rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition duration-300">
-                {label}
-              </span>
-            </div>
-          ))}
+
+// --- Categorized Tech Stack Data ---
+const techStack = [
+    { 
+        category: "Languages & Core", 
+        color: "border-l-4 border-green-500", // Visual identifier for the category bar
+        items: [
+            { icon: <SiCplusplus />, label: "C++", color: "text-blue-500" },
+            { icon: <FaJava />, label: "Java", color: "text-red-500" },
+            { icon: <FaPython />, label: "Python", color: "text-yellow-500" },
+            { icon: <RiJavascriptFill />, label: "JavaScript", color: "text-yellow-500" },
+            { icon: <SiDart />, label: "Dart", color: "text-sky-500" },
+        ] 
+    },
+    { 
+        category: "Frontend & Mobile", 
+        color: "border-l-4 border-emerald-500",
+        items: [
+            { icon: <FaReact />, label: "React", color: "text-green-500" },
+            { icon: <FaHtml5 />, label: "HTML", color: "text-orange-500" },
+            { icon: <FaCss3 />, label: "CSS", color: "text-blue-500" },
+            { icon: <RiTailwindCssFill />, label: "Tailwind CSS", color: "text-sky-500" },
+            { icon: <FaBootstrap />, label: "Bootstrap", color: "text-purple-500" },
+            { icon: <SiFlutter />, label: "Flutter", color: "text-sky-500" },
+            { icon: <BiSolidCube />, label: "BLoC", color: "text-purple-500" },
+            { icon: <SiGetx />, label: "GetX", color: "text-violet-500" },
+        ] 
+    },
+    { 
+        category: "Backend & Databases", 
+        color: "border-l-4 border-orange-500",
+        items: [
+            { icon: <FaNode />, label: "NodeJS", color: "text-green-500" },
+            { icon: <SiSpringboot />, label: "Spring Boot", color: "text-green-600" },
+            { icon: <GrMysql />, label: "MySQL", color: "text-blue-600" },
+            { icon: <SiMongodb />, label: "MongoDB", color: "text-green-500" },
+            { icon: <SiSqlite />, label: "SQLite", color: "text-blue-500" },
+            { icon: <SiApachehive />, label: "Hive", color: "text-yellow-500" },
+            { icon: <SiRedis />, label: "Redis", color: "text-red-500" },
+            { icon: <IoLogoFirebase />, label: "Firebase", color: "text-orange-500" },
+        ] 
+    },
+    { 
+        category: "DevOps & Tools", 
+        color: "border-l-4 border-violet-500",
+        items: [
+            { icon: <FaGitAlt />, label: "Git", color: "text-orange-500" },
+            { icon: <SiDocker />, label: "Docker", color: "text-blue-500" },
+            { icon: <SiVite />, label: "Vite", color: "text-purple-500" },
+            { icon: <SiPostman />, label: "Postman", color: "text-orange-500" },
+            { icon: <FiFigma />, label: "Figma", color: "text-pink-500" },
+        ] 
+    },
+];
+// -----------------------------------------------------------------
+
+const TechCategory = ({ category, items, color }) => (
+    <div className="w-full mb-12">
+        {/* Category Title Bar: 
+          - Increased font size (xl -> 2xl) 
+          - Added a distinct border-left and shadow for a "cut-out" effect 
+          - Using the dynamic 'color' prop for the vibrant border/background
+        */}
+        <h3 className={`text-2xl font-extrabold mb-8 text-white tracking-wide ${color} border-l-4 pl-4 pb-2 transition-colors duration-300 shadow-lg`}>
+            {category}
+        </h3>
+        
+        {/* Code Flow Layout: 
+          - Items are centered with justify-center
+          - Increased gap (gap-x-10 gap-y-12) for visual breathing room
+        */}
+        <div className="flex flex-wrap gap-x-10 gap-y-12 justify-center"> 
+            {items.map(({ icon: icon, label, color }, index) => (
+                <div
+                    key={index}
+                    // Card wrapper (Enhanced styles)
+                    className={`group relative flex flex-col items-center p-5 rounded-xl transition-all duration-300 transform 
+                                hover:scale-105 hover:shadow-2xl hover:shadow-cyan-900/60 
+                                bg-gray-900/70 border border-gray-700/50 
+                                w-full max-w-[110px]`} 
+                    style={{ minWidth: '90px' }}
+                >
+                    <div
+                        // APPLIED FLOW ANIMATION
+                        className={`text-5xl ${color} transition-all duration-300 animate-float-flow`}
+                        style={{ 
+                            animationDelay: `${index * 0.25}s`,
+                            animationDuration: `${7 + Math.random() * 4}s` 
+                        }} 
+                    >
+                        {icon}
+                    </div>
+                    
+                    {/* Label (Enhanced font weight) */}
+                    <span className="mt-3 text-xs font-semibold font-mono text-gray-400 group-hover:text-white transition-colors text-center">
+                        {label}
+                    </span>
+                    
+                    {/* Visual Hover Effect (Bottom Accent Bar) */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 rounded-b-xl bg-transparent group-hover:bg-cyan-500 transition-colors duration-300"></div>
+                </div>
+            ))}
         </div>
-
-        <p className="mt-12 text-sm md:text-base font-semibold text-gray-300 tracking-widest hover:text-green-400 transition">
-          .....and many more to come!
-        </p>
-      </section>
     </div>
-  );
+);
+function TechnologiesPic() {
+    // Inject the keyframes CSS once the component is mounted
+    React.useEffect(() => {
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        style.innerHTML = FLOAT_ANIMATION_CSS;
+        document.head.appendChild(style);
+
+        return () => {
+            if (document.head.contains(style)) {
+                 document.head.removeChild(style);
+            }
+        };
+    }, []);
+    
+    return (
+        // Main container
+        <div className="bg-black text-white py-16 px-4 md:px-8 font-sans">
+            <section className="max-w-7xl mx-auto flex flex-col items-center">
+                
+                {/* Title (green accent) */}
+                <h2 className={`text-4xl md:text-5xl font-extrabold mb-12 ${ACCENT_COLOR_CLASS} tracking-normal uppercase border-b border-green-700/50 pb-2`}>
+                    Tech Stacks
+                </h2>
+
+                {/* Flow Layout for Categorization */}
+                <div className="w-full">
+                    {techStack.map((group, index) => (
+                        <TechCategory key={index} category={group.category} items={group.items} color={group.color} />
+                    ))}
+                </div>
+
+                {/* Footer Message */}
+                <p className={`mt-12 text-sm md:text-base font-semibold text-gray-400 tracking-wider ${ACCENT_HOVER_CLASS} transition`}>
+                    Building with passion. .....and many more to come!
+                </p>
+            </section>
+        </div>
+    );
 }
 
 export default TechnologiesPic;

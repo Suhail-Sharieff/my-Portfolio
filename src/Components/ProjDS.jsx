@@ -1,71 +1,71 @@
-import React, { useState } from 'react';
-import Projects from './Projects';
-import DSA from './DSA';
+import React, { useState ,Suspense} from 'react';
+import Projects from './Projects'; // Assumes this is your ProjectsCard component
+import DSA from './DSA';           // Assumes this is your DSA activity component
+import { FaLaptopCode, FaCogs } from 'react-icons/fa'; // Icons for visual appeal
+
+// Define the accent color constants for consistency
+const ACCENT_COLOR = 'text-green-400';
+const ACCENT_BORDER = 'border-green-400';
+const ACCENT_HOVER_BG = 'hover:bg-green-900/40';
 
 function ProjDS() {
-  const [activeTab, setActiveTab] = useState('Projects');
+    const [activeTab, setActiveTab] = useState('Projects');
 
-  return (
-    <div style={{ backgroundColor: '#000000', padding: '20px' }}> {/* Set background to black */}
-      <style>
-        {`
-          .tab-button {
-            width: 36%;
-            padding: 10px;
-            transition: all 0.3s ease;
-            border: none;
-            background: none;
-            color: white;
-            cursor: pointer;
-            text-align: center;
-          }
-          .tab-button.active {
-            border-bottom: 2px solid white;
-          }
-          .icon-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-          }
-          @media (max-width: 768px) {
-            h3 {
-              font-size: 20px; /* Smaller heading on mobile */
-            }
-            .tab-button {
-              width: 100%;
-            }
-            .text-sm {
-              font-size: 0.875rem; /* Adjust text size on mobile */
-            }
-          }
-        `}
-      </style>
+    // Tab Data for cleaner rendering
+    const tabs = [
+        { id: 'Projects', name: 'Software Projects', icon: FaLaptopCode, component: Projects },
+        { id: 'DSA', name: 'Competitive Programming', icon: FaCogs, component: DSA },
+    ];
 
-      <section className="tracking-[.25em] flex flex-col w-full space-y-5">
-      <h3 className="footer text-4xl py-5 text-green-500" >Activity</h3>
-        <div className="flex flex-row gap-4">
-          <button 
-            className={`tab-button ${activeTab === 'Projects' ? 'active' : ''}`}
-            onClick={() => setActiveTab('Projects')}
-          >
-            Projects
-          </button>
-          <button 
-            className={`tab-button ${activeTab === 'DSA' ? 'active' : ''}`}
-            onClick={() => setActiveTab('DSA')}
-          >
-            DSA
-          </button>
+    const ActiveComponent = tabs.find(tab => tab.id === activeTab)?.component;
+
+    return (
+        // Main container: full width, padding, full black background, centered content
+        <div className="bg-black text-white w-full py-12 px-4 md:px-8 font-sans">
+            <section className="max-w-6xl mx-auto">
+                {/* Section Title (Enhanced) */}
+                <h3 className={`text-4xl md:text-5xl font-extrabold mb-8 ${ACCENT_COLOR} tracking-tight border-b border-gray-800 pb-3`}>
+                    My Activity
+                </h3>
+
+                {/* Tab Bar Container */}
+                <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mb-10 border-b border-gray-700">
+                    {tabs.map((tab) => {
+                        const isActive = activeTab === tab.id;
+                        const Icon = tab.icon;
+
+                        return (
+                            <button
+                                key={tab.id}
+                                className={`
+                                    flex items-center justify-center sm:justify-start
+                                    w-full sm:w-auto px-6 py-3 text-lg font-semibold 
+                                    transition-all duration-300 cursor-pointer 
+                                    rounded-t-lg ${ACCENT_HOVER_BG}
+                                    
+                                    ${isActive
+                                        ? `text-white border-b-2 ${ACCENT_BORDER} shadow-md`
+                                        : 'text-gray-400 border-b-2 border-transparent'
+                                    }
+                                `}
+                                onClick={() => setActiveTab(tab.id)}
+                            >
+                                <Icon className={`mr-2 ${isActive ? ACCENT_COLOR : 'text-gray-500'}`} size={20} />
+                                {tab.name}
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* Content Display Area */}
+                <div className="py-6 min-h-[500px]">
+                    <Suspense fallback={<div className="text-gray-500 text-center py-20">Loading content...</div>}>
+                        {ActiveComponent && <ActiveComponent />}
+                    </Suspense>
+                </div>
+            </section>
         </div>
-        <div className="icon-container">
-          {activeTab === 'Projects' && <Projects />}
-          {activeTab === 'DSA' && <DSA />}
-        </div>
-      </section>
-    </div>
-  );
+    );
 }
 
 export default ProjDS;
