@@ -1,4 +1,4 @@
-import React, { useState ,Suspense} from 'react';
+import React, { useState } from 'react'; // Removed Suspense from import
 import Projects from './Projects'; // Assumes this is your ProjectsCard component
 import DSA from './DSA';           // Assumes this is your DSA activity component
 import { FaLaptopCode, FaCogs } from 'react-icons/fa'; // Icons for visual appeal
@@ -57,11 +57,13 @@ function ProjDS() {
                     })}
                 </div>
 
-                {/* Content Display Area */}
+                {/* Content Display Area (CLEANED) */}
                 <div className="py-6 min-h-[500px]">
-                    <Suspense fallback={<div className="text-gray-500 text-center py-20">Loading content...</div>}>
-                        {ActiveComponent && <ActiveComponent />}
-                    </Suspense>
+                    {/* The fallback div is typically for Suspense, but kept here as a visual safeguard */}
+                    {!ActiveComponent && <div className="text-gray-500 text-center py-20">Loading content...</div>}
+                    
+                    {/* Render the active component */}
+                    {ActiveComponent && <ActiveComponent />}
                 </div>
             </section>
         </div>
