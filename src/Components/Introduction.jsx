@@ -6,7 +6,7 @@ import { SiCodeforces } from 'react-icons/si';
 import Spline from '@splinetool/react-spline'; 
 
 // 1. Import your profile picture
-import pfp from '../assets/pfp.jpg'; 
+import pfp from '../assets/pfp.png'; 
 
 // --- Configuration ---
 // Your provided Spline scene URL

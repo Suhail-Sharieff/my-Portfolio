@@ -63,7 +63,7 @@ function ProjDS() {
                     {/* {!ActiveComponent && <div className="text-gray-500 text-center py-20">Loading content...</div>} */}
                     
                     {/* Render the active component */}
-                    {ActiveComponent && <ActiveComponent />}
+                    { <ActiveComponent />}
                 </div>
             </section>
         </div>
