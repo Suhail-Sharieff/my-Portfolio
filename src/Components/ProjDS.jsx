@@ -60,7 +60,7 @@ function ProjDS() {
                 {/* Content Display Area (CLEANED) */}
                 <div className="py-6 min-h-[500px]">
                     {/* The fallback div is typically for Suspense, but kept here as a visual safeguard */}
-                    {!ActiveComponent && <div className="text-gray-500 text-center py-20">Loading content...</div>}
+                    {/* {!ActiveComponent && <div className="text-gray-500 text-center py-20">Loading content...</div>} */}
                     
                     {/* Render the active component */}
                     {ActiveComponent && <ActiveComponent />}
