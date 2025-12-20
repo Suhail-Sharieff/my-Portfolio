@@ -78,7 +78,7 @@ function Footer() {
                         
                         {/* Resume Button (Prominent) */}
                         <a 
-                            href="https://drive.google.com/file/d/1Dl5LRcWRq0ly_N3vYA_xI4vvJqVSGy9B/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1S45dJQJr14F7X7ZtZ967kJTvvC3-lm-R/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 mb-6 text-sm font-semibold rounded-lg ${ACCENT_COLOR_CLASS} border-2 border-green-700/50 hover:bg-green-900/50 transition-all duration-300`}
