@@ -84,7 +84,7 @@ function Introduction() {
                         </h1>
                         
                         <div className="text-lg text-gray-400">
-                            19M, Student | Bangalore, IN | <span className="font-mono text-orange-400">{currentTime.toLocaleTimeString()}</span>
+                            20M, Student | Bangalore, IN | <span className="font-mono text-orange-400">{currentTime.toLocaleTimeString()}</span>
                         </div>
 
                         <p className="text-gray-300 tracking-wide leading-relaxed">
